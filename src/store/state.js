@@ -4,5 +4,10 @@ export default{
   // 限时购商品
   timerShops:[],
   // 获取热词列表
-  hotwords:[]
+  hotwords:[],
+  // 获取内容区分类列表
+  contentLists:[],
+  // 搜索的词汇
+  searchkey:[],
+  words:'a'
 }

@@ -1,5 +1,5 @@
 <template>
-  <footer class="footcontainer">
+  <footer class="footcontainer" ref="footer">
     <a href="javascript:;" class="guide_item" :class="{'on':$route.path==='/firstpage'}" @click="goto('/firstpage')">
         <span class="item_icon">
           <i class="iconfont icon-shouye"></i>
@@ -41,6 +41,9 @@ export default{
        this.$router.replace(url)
      }
    }
+ },
+ mounted(){
+   const footerHeight = this.$refs.footer
  }
 }
 </script>

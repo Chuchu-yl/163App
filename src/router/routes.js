@@ -12,6 +12,7 @@ const Found=()=>import('../pages/found/Found.vue')
 const Personal=()=>import('../pages/personal/Personal.vue')
 const Shopping=()=>import('../pages/shopping/Shopping.vue')
 const Search=()=>import('../pages/search/Search.vue')
+// const CategoryRight=()=>import('../pages/category/categoryright/CategoryRight.vue')
 
 export default[
   // 配置一级路由
@@ -29,7 +30,13 @@ export default[
     // 底部盗汗显示不显示（在个人中心页面不显示）
     meta:{
       isShowFooter:true
-    }
+    },
+    // children:[
+    //   {
+    //     path:'/category:id',
+    //     component:CategoryRight
+    //   }
+    // ]
   },
   {
     path:'/found',

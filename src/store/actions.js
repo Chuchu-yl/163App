@@ -1,5 +1,5 @@
-import {GETTRAVELGOODS,GETTIMERSHOPS, GETHOTWORDS} from './mutation-types'
-import {reqTravel,reqTimerShops,reqSearchHot} from '../api/index'
+import {GETTRAVELGOODS,GETTIMERSHOPS, GETHOTWORDS,GETCONTENTLIST,GETSEARCHKEY} from './mutation-types'
+import {reqTravel,reqTimerShops,reqSearchHot,reqContentList,reqSearchWords} from '../api/index'
 export default{
   // 获取旅游商品信息
   async getTravelGoods({commit}){
@@ -20,10 +20,30 @@ export default{
   },
   // 获取热词
   async getHotWords({commit}){
+    // console.log('2');
     const result=await reqSearchHot()
-    if(result.code===200){
+    if(result.code==="200"){
       const hotwords=result.data.hotKeywordVOList
       commit(GETHOTWORDS,hotwords)
+    }
+  },
+  // 获取内容区分类列表
+  async getContentList({commit}){
+    const result = await reqContentList()
+    if(result.code===0){
+      const contentLists=result.data
+      commit(GETCONTENTLIST,contentLists)
+    }
+  },
+  // 获得搜索的热词
+  async getSearchKey({commit,state}){
+    const {words}=state
+    // console.log('gg');
+    const result = await reqSearchWords({words})
+    if(result.code==='200'){
+      // console.log('search');
+      const searchkey=result.data
+      commit(GETSEARCHKEY,searchkey)
     }
   }
 }

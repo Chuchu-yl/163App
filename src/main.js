@@ -19,6 +19,7 @@ import loading from './common/images/shopping.png'
 Vue.use(VueLazyload, {
   loading
 })
+Vue.prototype.$bus=new Vue()
 // 路由
 import router from './router/index.js'
 Vue.config.productionTip = false
