@@ -59,12 +59,21 @@
         <img src="http://yanxuan.nosdn.127.net/bd139d2c42205f749cd4ab78fa3d6c60.png" alt="">
       </div>
       <div class="input">
-        <input class="putphone" type="text" placeholder="邮箱账号">
-        <div class="inputwrap">
-          <input type="text" placeholder="密码">
-          <input class="num" type="text" placeholder="注册账号">
+        <input
+         class="putphone" 
+         placeholder="邮箱账号" 
+         v-model="email"
+         v-validate="'required|email'"
+
+         name="email"
+         >
+        <span style="color:red" v-show="errors.has('email')">{{ errors.first('email') }}</span>
+        <div class="wrap">
+          <input class="password" type="text" placeholder="密码" v-model="emailpassword">
+          <input class="num" type="text" placeholder="注册账号" v-model="register">
           <mt-button class="code">忘记密码</mt-button>
         </div>
+        <div class="btn">登录</div>
       </div>
       <div class="otherLogin" >
         <span @click="returnPeronal">其他登录方式  ></span>
@@ -86,7 +95,10 @@ export default{
       id:0,
       phone:'',
       code:'',
-      result:true
+      result:true,
+      email:'',
+      emailpassword:'',
+      register:''
     }
   },
   methods:{
@@ -180,7 +192,6 @@ export default{
       height 482px
       display flex
       justify-content center
-      // align-items center
       img 
         width 200px
         height 62px
@@ -194,6 +205,8 @@ export default{
         box-sizing border-box
         outline none
         border-bottom 1px #ccc solid
+      span 
+        margin-left 30px
       .zhengze
         margin-left 30px
         color #DD1A21
@@ -203,11 +216,9 @@ export default{
         margin 30px
         box-sizing border-box
         display flex
-        // justify-content center
         position relative
         input
           height 90px
-          // vertical-align middle
           outline none
           border-bottom 1px #ccc solid
           width 100%    
@@ -218,10 +229,46 @@ export default{
           width 160px
           height 54px
           font-size 24px
+      .wrap
+        width 100%
+        height 90px
+        margin 30px
+        box-sizing border-box
+        display flex
+        position relative
+        flex-wrap wrap
+        .password
+          width 750px
+          height 90px
+          margin  0 20px 
+          box-sizing border-box
+          outline none
+          border-bottom 1px #ccc solid 
         .num
+          height 90px
+          outline none
+          border-bottom 1px #ccc solid
+          width 100% 
+          padding-left  20px  
+        .code
           position absolute
-          left 0
-          top 0
+          right 50px
+          bottom -80px
+          width 160px
+          height 54px
+          font-size 24px
+      .btn
+        width 650px
+        height 94px
+        background-color #DD1A21
+        color #ffffff
+        font-size 28px
+        text-align center
+        line-height 94px
+        margin-left 50px
+        position absolute
+        bottom 350px
+        left  0
       .loginphone
         width 650px
         height 94px

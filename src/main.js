@@ -22,6 +22,8 @@ Vue.use(VueLazyload, {
 Vue.prototype.$bus=new Vue()
 // 路由
 import router from './router/index.js'
+// 引入表单验证插件
+import '../validate.js'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

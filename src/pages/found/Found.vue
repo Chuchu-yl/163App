@@ -30,7 +30,7 @@
       <div class="tuijianwrapper">
         <div class="tuijian-container" v-show="this.$route.params.id===oldindex+''">
             <div class="bianlione" v-for="(arr,index) in wrapArr" :key="index" >
-                <div class="tuijian-xuanmei-big" ref="bianlibig" v-for="(topic,index) in arr.topics" :key="index.topicId" v-if="topic.type!==2">
+              <div class="tuijian-xuanmei-big" ref="bianlibig" v-for="(topic,index) in arr.topics" :key="index.topicId" v-if="topic.type!==2">
                   <a :href="topic.schemeUrl">
                     <div class="u-name">
                       <span class="avatar"><img :src="topic.avatar" alt=""></span>
@@ -76,7 +76,8 @@ export default{
       wrapArr:[],
       page:1,
       size:5,
-      isMove:true
+      isMove:true,
+      res:{}
     }
   },
   mounted(){
@@ -109,20 +110,25 @@ export default{
         // this.scrollHeight.maxScrollY
         // console.log(this.scrollHeight.maxScrollY,y);
         if(this.scrollHeight.maxScrollY > y && this.isMove){
-          console.log('拖到底部了');
+          // console.log('拖到底部了');
           //  滑动到底了，发送请求，获取新的数据
           // 拖到底只触发一次
           this.isMove=false
           // this.size++
           this.page++
           let {size,page}=this
-          console.log(this.size,this.page);
+          // console.log(this.size,this.page);
           const result=await reqPullList({page,size})
           if(result.code==='200'){
-            console.log('数据回来');
-            //  新获取的数据排到最后加载
-            this.wrapArr=result.data.result
-            console.log(result.data.result);
+            // console.log('数据回来');
+            // 新获取的数据排到最后加载
+            let Arr=result.data.result
+
+            Arr.forEach((item)=>{
+              //  console.log(item);
+              this.res=item
+            })
+            this.wrapArr.push(this.res)
             this.isMove=true
           }
         }
