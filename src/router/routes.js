@@ -53,7 +53,7 @@ export default[
         component:Found,
         meta:{
           isShowFooter:true
-        },
+        }
       },
       {
         path:'/foundall/foundhome/:id',

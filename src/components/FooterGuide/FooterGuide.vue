@@ -12,7 +12,7 @@
         </span>
         <span>分类</span>
     </a>
-    <a href="javascript:;" class="guide_item" :class="{'on':$route.path==='/foundall'}" @click="goto('/foundall')">
+    <a href="javascript:;" class="guide_item" :class="{'on':$route.path==='/foundall/find/0' || $route.path==='/foundall/find/1'}" @click="goto('/foundall')">
         <span class="item_icon">
           <i class="iconfont icon-wupin"></i>
         </span>

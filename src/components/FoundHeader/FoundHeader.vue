@@ -3,8 +3,8 @@
     <div class="found-header-container-top">
             <span class="iconfont icon-shouye" @click="$router.push('/firstpage')"></span>
             <div class="title">
-              <span :class="{active:this.$route.params.id===0}" @click="handleCheckoutfound()">发现</span>
-              <span :class="{active:this.$route.params.id===1}" @click="handleCheckouthome()">甄选家</span>
+              <span :class="{active:this.$route.params.id==='0'}" @click="handleCheckoutfound()">发现</span>
+              <span :class="{active:this.$route.params.id==='1'}" @click="handleCheckouthome()">甄选家</span>
             </div>
             <span class="iconfont icon-sousuo"></span>
             <span class="iconfont icon-dianshanghangye"></span>
@@ -15,25 +15,28 @@
 export default{
   data(){
     return{
-
+      // id:''
     }
   },
   methods:{
     handleCheckouthome(){
       this.$router.push('/foundall/foundhome/1')
-      console.log(this.$route.params.id);
       },
     handleCheckoutfound(){
-      console.log(this.$route.params.id);
-      this.$router.push('/foundall')
+      // console.log(this.$route.params.id);
+      this.$router.push('/foundall/find/0')
     }
   },
-  mounted(){
+  updated(){
+      // console.log(this.$route.params.id);
+      // this.id=this.$route.params.id
   }
 }
 </script>
 <style lang='stylus' scoped>
 .found-header-container
+    position relative
+    z-index 99
     background-color #fafafa
     .found-header-container-top
       height 100px
@@ -48,10 +51,10 @@ export default{
       :nth-child(1)
         margin-left 0px
       .title
-        width 200px
+        width 300px
         // height 50px
         position absolute
-        left 0
+        left 20px
         right 0
         bottom 0
         top 0

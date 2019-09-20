@@ -10,3 +10,5 @@ Mock.mock('/homedata',{code:0,data:homeData.popularItemList})
 Mock.mock('/travelgoods',{code:0,data:homeData.personalShop})
 // 分类列表
 Mock.mock('/categorylist',{code:0,data:categoryList.categoryL1List})
+// 得到手机号密码登录
+Mock.mock('/phonelogin',{code:0,data:data.phone})
