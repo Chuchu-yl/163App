@@ -37,11 +37,11 @@ export default{
   methods:{
     initScroll(){
       const content=this.$refs.shopCategory
-      // console.log(content);
+      console.log(content);
       const liWidth = content.children[0].clientWidth
       // const liWidth = content.childNodes[0].clientWidth
       // console.log(content.childNodes[0]);
-      // console.log(liWidth);
+      console.log(liWidth);
       content.style.width=liWidth*16+'px'
       // console.log(content.style.width);
       this.shopScroll= new BScroll(".shop-list",{

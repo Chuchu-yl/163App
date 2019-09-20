@@ -12,7 +12,7 @@
         </span>
         <span>分类</span>
     </a>
-    <a href="javascript:;" class="guide_item" :class="{'on':$route.path==='/found'}" @click="goto('/found')">
+    <a href="javascript:;" class="guide_item" :class="{'on':$route.path==='/foundall'}" @click="goto('/foundall')">
         <span class="item_icon">
           <i class="iconfont icon-wupin"></i>
         </span>
@@ -43,7 +43,7 @@ export default{
    }
  },
  mounted(){
-   const footerHeight = this.$refs.footer
+  //  const footerHeight = this.$refs.footer
  }
 }
 </script>

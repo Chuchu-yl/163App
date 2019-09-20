@@ -12,7 +12,7 @@ export default{
   [GETCONTENTLIST](state,contentLists){
     state.contentLists=contentLists
   },
-  [GETSEARCHKEY](state,searchkey){
-    state.searchkey=searchkey
-  }
+  // [GETSEARCHKEY](state,searchkey){
+  //   state.searchkey=searchkey
+  // }
 }

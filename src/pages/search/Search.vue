@@ -3,11 +3,11 @@
     <div class="search-top">
         <div class="search-top-left">
           <i class="iconfont icon-sousuo"></i>
-          <input type="text" placeholder="you are my sunshine" v-model="key" @keyup="handleKeyup(key)">
+          <input type="text" placeholder="you are my sunshine" v-model="key" @keyup="handleKeyup()">
         </div>
         <span class="search-top-text" @click="$router.push('/firstpage')">取消</span>
     </div>
-    <div class="search-bottom">
+    <div class="search-bottom" v-show="isKeyUp">
       <div class="search-bottom-header"><span>热门搜索</span></div>
       <ul class="search-bottom-list">
         <li v-for="(hotword,index) in hotwords" :key="index">
@@ -15,25 +15,36 @@
         </li>
       </ul>
     </div>
+    <!-- 搜索的关键词下拉列表 -->
+    <div class="keywordlist" v-show="!isKeyUp">
+      <ul class="keywordul">
+        <li v-for="(search,index) in searchKey" :key="index">
+          <span>{{search}}</span>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </template>
 <script>
 import {mapState} from 'vuex'
+import {reqSearchWords} from '../../api/index'
 export default{
   data(){
     return{
       key:'',
       // words:''
+      searchKey:[],
+      isKeyUp:true,
+      id:null
     }
   },
   computed:{
-    ...mapState(['hotwords','searchkey','words'])
+    ...mapState(['hotwords'])
   },
   mounted(){
     this.$store.dispatch('getHotWords')
-    this.$store.dispatch('getSearchKey')
-    this.handleKeyup()
-    console.log(typeof this.words);
+    // this.handleKeyup()
   },
   updated(){
     // console.log(this.keys)
@@ -41,10 +52,30 @@ export default{
   },
   methods:{
     // 输入的时候，按键抬起，发送请求
-    handleKeyup(key){
-      this.words=key
-      // console.log(key);
+    handleKeyup(){
+      if(this.id){
+        clearTimeout(this.id)
+        this.searchKey=[]
+      }
+      this.id=setTimeout(()=>{
+        this.getSearchData()
+      },300)
+      
+      this.isKeyUp=false
+      if(this.key===''){
+        this.isKeyUp=true
+      }
+    },
+    // 获取搜索的关键词数据
+  async  getSearchData(){
+    const {key} = this
+    const result = await reqSearchWords({key})
+    if(result.code==='200'){
+      // console.log(result)
+        this.searchKey=result.data
+      }
     }
+
   },
 }
 </script>
@@ -110,6 +141,17 @@ export default{
       :nth-child(2)
         border-color #b4282d
         color #b4282d
-
-      
+  .keywordlist
+    .keywordul
+      background-color #fff
+      li
+        width 720px
+        height 104px
+        padding 15px
+        box-sizing border-box
+        line-height 104px
+        padding-left 30px
+        span 
+          font-size 28px
+          color #333
 </style>

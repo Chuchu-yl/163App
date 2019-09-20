@@ -80,7 +80,24 @@
         <!-- 商品群落2 -->
         <SecondShops/>
         <!-- 商品群落3 -->
-        <FirstShops/>
+        <!-- <FirstShops/> -->
+        <div class="firstshop-container">
+          <div class="shop-banner">
+            <img class="shop-add" src="https://yanxuan.nosdn.127.net/1eba77c8f34e1498b83cabca593f3a3f.jpg?imageView&thumbnail=750x0&quality=75" alt="">
+          </div>
+          <div class="shop-list" ref="shoplist">
+            <ul class="shop-list-categorys" ref="shopCategory">
+              <li v-for="(travelgood,index) in travelgoods" :key="index">
+                <img class="shop-pho" :src="travelgood.listPicUrl" alt="">
+                <div class="shop-name">{{travelgood.name}}</div>
+                <p class="shop-price">￥{{travelgood.counterPrice}}</p>
+              </li>
+              <div class="shop-more">
+                <span>查看更多 ></span>
+              </div>
+            </ul>
+          </div>
+        </div>
         <!-- 底部 -->
         <PageFooter/>
       </div>
@@ -92,9 +109,10 @@ import Header from '../../components/Header/Header.vue'
 import Swiper from 'swiper'
 import {reqCategorys} from '../../api/index'
 import BScroll from 'better-scroll'
-import FirstShops from './firstshops/FirstShops.vue'
+// import FirstShops from './firstshops/FirstShops.vue'
 import SecondShops from './firstshops/SecondShops.vue'
 import PageFooter from '../../components/PageFooter/PageFooter.vue'
+import {mapState} from 'vuex'
 // 需要引入css
 import 'swiper/dist/css/swiper.css'
 export default{
@@ -103,32 +121,58 @@ export default{
       categorys:[]
     }
   },
+  computed:{
+    ...mapState(['travelgoods'])
+  },
   methods:{
     initScroll(){
-      const content=this.$refs.contentDom
+      // const content=this.$refs.contentDom
       // console.log(content);
-      const first=content.childNodes[0].clientHeight
-      // console.log(first);
-      const two=content.children[1].childNodes[0].clientHeight
-      // console.log(two);
-      const third=content.childNodes[2].clientHeight*2
-      const four=content.childNodes[3].clientHeight
-      // console.log(four);
-      const five=content.childNodes[4].clientHeight
+      // const first=content.childNodes[0].clientHeight
+      // // console.log(first);
+      // const two=content.children[1].childNodes[0].clientHeight
+      // // console.log(two);
+      // const third=content.childNodes[2].clientHeight*2
+      // const four=content.childNodes[3].clientHeight
+      // // console.log(four);
+      // const five=content.childNodes[4].clientHeight
       // console.log(five);
       
       // console.log(third);
-      content.style.height=first+two+third+four+five+'px'
-      this.scroll=new BScroll(".first-wraper",{
+      // content.style.height=first+two+third+four+five+'px'
+      // Array.prototype.slice.call(content).reduce((pre,now)=>{
+      //     return pre+now
+      // },0)
+      // console.log(content.clientHeight);
+      new BScroll(".first-wraper",{
         click:true,
         scrollY:true
+      })
+    },
+    initScrollS(){
+      const content=this.$refs.shopCategory
+      console.log(content.children);
+      // const liWidth = content.children[0].clientWidth
+      // // const liWidth = content.childNodes[0].clientWidth
+      // // console.log(content.childNodes[0]);
+      // // console.log(liWidth);
+      // console.log(content.style.width);
+      // content.children.reduce()
+    const res=  Array.prototype.slice.call(content.children).reduce((pre,now)=>{
+          return pre += now.clientWidth
+      },0)
+      // console.log(res);
+      content.style.width=res+450+'px'
+      new BScroll(this.$refs.shoplist,{
+        click:true,
+        scrollX:true
       })
     }
   },
   
   components:{
     Header,
-    FirstShops,
+    // FirstShops,
     SecondShops,
     PageFooter
   },
@@ -138,6 +182,11 @@ export default{
       this.$nextTick(()=>{
         this.initScroll();
       })
+    },
+    travelgoods(){
+        this.$nextTick(()=>{
+          this.initScrollS()
+        })
     }
   },
  async mounted(){
@@ -159,6 +208,13 @@ export default{
 
     if(this.categorys){
       this.initScroll()
+    }
+
+
+    this.$store.dispatch('getTravelGoods')
+    // 滑动按钮
+    if(this.travelgoods){
+        this.initScrollS()
     }
     
   }
@@ -299,7 +355,43 @@ export default{
                     font-size 18px
                     font-weight bold
                     // line-height 50px
-
+      .firstshop-container
+        width 100%
+        margin-top 30px
+        .shop-banner
+          .shop-add 
+            width 100%
+        .shop-list
+          height 391px
+          .shop-list-categorys
+            margin-top 20px
+            display flex
+            overflow hidden
+            li
+              margin 20px 0px 20px 20px
+              .shop-pho 
+                width 200px
+                height 200px
+                background-color #f4f4f4
+              .shop-name
+                width 200px
+                height 72px
+                font-size 24px
+                line-height 30px
+                color #333
+              .shop-price
+                width 200px
+                height 36px
+                color #b4282d
+            .shop-more
+              width 200px
+              height 200px
+              background-color #f4f4f4
+              float right 
+              margin 20px
+              font-size 28px
+              text-align center
+              line-height 200px
 
 
 

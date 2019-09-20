@@ -8,11 +8,13 @@
 // 路由组件懒加载
 const FirstPage=()=>import('../pages/firstPage/FirstPage.vue')
 const Category=()=>import('../pages/category/Category.vue')
-const Found=()=>import('../pages/found/Found.vue')
+const FoundAll=()=>import('../pages/foundall/FoundAll.vue')
 const Personal=()=>import('../pages/personal/Personal.vue')
 const Shopping=()=>import('../pages/shopping/Shopping.vue')
 const Search=()=>import('../pages/search/Search.vue')
-// const CategoryRight=()=>import('../pages/category/categoryright/CategoryRight.vue')
+
+const FoundHome=()=>import('../pages/fonudhome/FoundHome.vue')
+const Found=()=>import('../pages/found/Found.vue')
 
 export default[
   // 配置一级路由
@@ -39,12 +41,33 @@ export default[
     // ]
   },
   {
-    path:'/found',
-    component:Found,
+    path:'/foundall',
+    component:FoundAll,
     // 底部盗汗显示不显示（在个人中心页面不显示）
     meta:{
       isShowFooter:true
-    }
+    },
+    children:[
+      {
+        path:'/foundall/find/:id',
+        component:Found,
+        meta:{
+          isShowFooter:true
+        },
+      },
+      {
+        path:'/foundall/foundhome/:id',
+        component:FoundHome,
+        meta:{
+          isShowFooter:true
+        },
+      },
+      {
+        path:'/foundall',
+        redirect:'/foundall/find/0'
+      }
+
+    ]
   },
   {
     path:'/shopping',

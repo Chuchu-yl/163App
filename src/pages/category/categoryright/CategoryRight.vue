@@ -47,7 +47,7 @@ export default{
     }
   },
   mounted(){
-    console.log(this.contentLists);
+    // console.log(this.contentLists);
     // 接收一下正在点击的下标
     if(this.contentLists){
       this.initScroll()
@@ -55,8 +55,8 @@ export default{
     this.initSwiper()
   },
   updated(){
-    console.log(this.leftindex,'左边的')
-    console.log(this.rightIndex,'右边的')
+    // console.log(this.leftindex,'左边的')
+    // console.log(this.rightIndex,'右边的')
     this.rightIndex=this.leftindex
   },
   computed:{
@@ -66,8 +66,8 @@ export default{
    initScroll(){
      const big=this.$refs.big.clientHeight
      const inner = this.$refs.container.clientHeight
-     console.log(inner);
-     console.log(big);
+    //  console.log(inner);
+    //  console.log(big);
      new BScroll('.categoryrightcontainer',{
        click:true,
        scrollY:true

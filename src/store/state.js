@@ -7,7 +7,7 @@ export default{
   hotwords:[],
   // 获取内容区分类列表
   contentLists:[],
-  // 搜索的词汇
-  searchkey:[],
-  words:'a'
+  // // 搜索的词汇
+  // searchkey:[],
+  // words:''
 }
