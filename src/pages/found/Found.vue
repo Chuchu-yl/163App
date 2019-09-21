@@ -31,7 +31,7 @@
         <div class="tuijian-container" v-show="this.$route.params.id===oldindex+''">
             <div class="bianlione" v-for="(arr,index) in wrapArr" :key="index" >
               <div class="tuijian-xuanmei-big" ref="bianlibig" v-for="(topic,index) in arr.topics" :key="index.topicId" v-if="topic.type!==2">
-                  <a :href="topic.schemeUrl">
+                  <a href="javascript:;">
                     <div class="u-name">
                       <span class="avatar"><img :src="topic.avatar" alt=""></span>
                       <span class="username">{{topic.nickname}}</span>
@@ -65,7 +65,8 @@
 <script>
 import BScroll from 'better-scroll'
 import {reqPullList} from '../../api/index'
-import { async } from 'q'
+// import { async } from 'q'
+import {mapState} from 'vuex'
 export default{
   data(){
     return{
@@ -79,6 +80,9 @@ export default{
       isMove:true,
       res:{}
     }
+  },
+  computed:{
+    ...mapState(['user'])
   },
   mounted(){
     if(this.categorys){
@@ -154,12 +158,12 @@ export default{
           }
     },
     // 计算是否拖到了底部
-    againSendReq(){
+    // againSendReq(){
       
-      // console.log(content);
-      // const sreenHeight=this.pageY
+    //   // console.log(content);
+    //   // const sreenHeight=this.pageY
     
-    }
+    // }
   },
 
   watch:{

@@ -1,4 +1,4 @@
-import {GETTRAVELGOODS,GETTIMERSHOPS,GETHOTWORDS,GETCONTENTLIST,GETSEARCHKEY} from './mutation-types'
+import {GETTRAVELGOODS,GETTIMERSHOPS,GETHOTWORDS,GETCONTENTLIST,GETUSER} from './mutation-types'
 export default{
   [GETTRAVELGOODS](state,travelgoods){
     state.travelgoods=travelgoods
@@ -14,5 +14,8 @@ export default{
   },
   // [GETSEARCHKEY](state,searchkey){
   //   state.searchkey=searchkey
-  // }
+  // }，
+  [GETUSER](state,user){
+    state.user=user
+  }
 }

@@ -85,6 +85,7 @@
 <script>
 import WyxyHeader from '../../components/wyyxheader/WyyxHeader.vue'
 import {reqLogin} from '../../api/index'
+import {mapState} from 'vuex'
 export default{
   components:{
     WyxyHeader
@@ -111,7 +112,7 @@ export default{
     emailLogin(){
       this.id=2
     },
-  async  login(){
+  async panduan(){
       const result = await reqLogin()
       if(result.code===0){
         const {telephone,password}=result.data
@@ -120,10 +121,20 @@ export default{
             this.$router.push('/firstpage')
         }
       }
-    }
+
+    },
+  login(){
+    const {phone,code}=this
+    const user={phone,code}
+    this.$store.commit('getuser',user)
+    this.panduan()
+    this.user=user
+    console.log(this.user);
+
+  }
   },
   mounted(){
-    this.login()
+    // this.panduan()
   },
   // 监视input框中手机号的变化
   watch:{
@@ -132,6 +143,9 @@ export default{
       this.result= reg.test(this.phone)
       // console.log(result);
     }
+  },
+  computed:{
+    ...mapState(['user'])
   }
 }
 </script>
