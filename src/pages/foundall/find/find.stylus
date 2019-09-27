@@ -1,0 +1,123 @@
+.foundcontainer
+  .found-header-container
+    position relative
+    z-index 99
+    background-color #fafafa
+    .found-header-container-middle
+      width 750px
+      height 72px
+      padding-bottom 10px
+      .found-header-container-middle-ul
+        display flex
+        overflow hidden
+        white-space nowrap
+        align-items center
+        line-height 72px
+        a
+          margin 0 20px
+          &.active
+            border-bottom solid 3px #B4282D
+          span 
+            font-size 28px
+            color #7f7f7f
+  .found-content-container
+    .found-content-firstpage
+      .one
+        // display flex
+        font-size 0
+        :nth-child(1)
+          width 750px
+          height 300px
+        :nth-child(2)
+          width 750px
+          height 69px
+      .two
+        width 750px
+        height 345px
+      .third
+        width 750px
+        height 138px
+      .swiperplay
+        width 100%
+        height 624px
+        padding 10px 0
+.tuijianwrapper
+  height 1000px  
+  .tuijian-container
+    .tuijian-xuanmei-big
+      width 690px
+      height 606px
+      margin 20px 0
+      padding 36px 30px
+      background-color #fff
+      .u-name
+        width 100%
+        height 56px
+        display flex
+        margin-bottom 24px
+        .avatar
+          img 
+            width 50px
+            height 50px
+            border-radius 50%
+            line-height 56px
+            margin-right 20px
+            // vertical-align middle
+        .username
+          font-size 28px
+          color #333
+          line-height 56px
+      .description
+        height 104px
+        width 100%
+        margin 8px 0 16px 0
+        font-size 36px
+        color #333
+      .u-pic
+        img 
+          display block
+          height 376px
+          width 100%
+      .watch
+        color #999
+        font-size 24px
+    .tuijian-yonghu-small
+      .yonghu-wrap
+        width 690px
+        height 272px
+        display flex
+        // justify-content space-around
+        margin-top 20px
+        padding 36px 30px
+        background-color #fff
+        .yonghu-left
+          .u-name
+            width 100%
+            height 56px
+            display flex
+            margin-bottom 24px
+            .avatar
+              img 
+                width 50px
+                height 50px
+                border-radius 50%
+                line-height 56px
+                margin-right 20px
+                // vertical-align middle
+            .username
+              font-size 28px
+              color #333
+              line-height 56px
+          .description
+            width 400px
+            height 120px
+            font-size 36px
+            color #333
+          .food
+            padding-top 18px
+          .watch
+            margin-top 18px
+        .yonghu-right
+          img 
+            width 272px
+            height 272px

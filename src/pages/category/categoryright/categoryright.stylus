@@ -1,0 +1,45 @@
+.categoryrightcontainer
+  width 588px
+  height 1148px
+  padding 30px 30px 21px 30px
+  .category-content-right
+    .category-content-right-container
+      .category-content-right-header
+        // img 
+        //   height 192px
+        //   width 528px
+        .swiper-container
+          height 192px
+          width 528px
+          .swiper-wrapper
+            .swiper-slide
+              img 
+                height 192px
+                width 528px
+          .swiper-pagination
+            .swiper-pagination-bullet
+              background-color rgba(255,255,255,0.5)
+              width 40px
+              height 10px
+              border-radius 0
+            .swiper-pagination-bullet-active
+              background-color white
+      .ulwrap
+        display flex
+        position relative
+        .category-content-right-ul
+          display flex
+          flex-wrap wrap
+          justify-content left
+          li
+            display flex
+            flex-wrap wrap
+            flex-direction column
+            margin 10px 10px 10px 20px
+            img 
+              width 144px
+              height 144px
+              border-radius 50%
+            p
+              height 72px
+              width 144px

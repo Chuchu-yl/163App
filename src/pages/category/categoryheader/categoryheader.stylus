@@ -1,0 +1,21 @@
+.categoryheadercontainer
+  width 690px
+  height 88px
+  padding 0 30px
+  background-color #fff
+  line-height 88px
+  border-bottom 1px #ccc solid
+  display flex
+  align-items center
+  position relative
+  z-index 99
+  .header-wrap
+    font-size 28px
+    width 690px
+    height 56px
+    box-sizing border-box
+    background-color #f4f4f4
+    line-height 56px
+    text-align center
+    .iconfont
+      font-size 28px
