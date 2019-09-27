@@ -3,14 +3,32 @@
     同步action：是一个对象，{type：xxx，data：数据}
     异步action：是一个函数，接收dispatch函数为参数的函数，dispatch=>{1.发异步ajax请求； 2.根据结果分发同步action}
 */
-import {reqContentList,reqFindList} from '../../api/index'
+import {reqContentList,reqFindList,reqSearchWords} from '../../api/index'
 // import { type } from 'os'
-import {GETNAVLIST,GETPICINFO,GETFOODLIST} from './action-type'
+import {GETNAVLIST,GETPICINFO,GETFOODLIST,SEARCHLIST} from './action-type'
+import { async } from 'q'
 
 
 export const categoryNav=(navlist)=>({type:GETNAVLIST,data:navlist})
 
 export const findList=(foodlist)=>({type:GETFOODLIST,data:foodlist})
+
+
+export const searchlist=(search)=>({type:SEARCHLIST,data:search})
+
+export function getSearch(key){
+  return async dispatch=>{
+    console.log(key);
+    const result=await reqSearchWords(key)
+    console.log(result);
+    if(result.code==='200'){
+      console.log(result);
+      const searchlists=result.data
+      dispatch(searchlist(searchlists))
+    }
+  }
+}
+
 
 export function getfinddlist({page,size}){
   return async dispatch=>{

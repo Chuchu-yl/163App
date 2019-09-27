@@ -11,3 +11,5 @@ export const reqContentList=()=>ajax('/categorylist')
 export const reqFindList=({page,size})=>ajax.post(`/topic/v1/find/recAuto.json?page=${page}&size=${size}`)
 // 获取登录的手机号一验证码
 export const reqPhone=()=>ajax('/phonelogin')
+// 获取搜索下拉的列表
+export const reqSearchWords=(key)=>ajax(`/xhr/search/searchAutoComplete.json?keywordPrefix=${key}`)
