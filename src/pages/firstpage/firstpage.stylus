@@ -1,0 +1,171 @@
+.firstpagecontainer
+  width 100%
+  background-color #fff
+  overflow hidden
+  .first-wraper
+    height 1400px
+    .first-content
+      padding 0 0 220px 0 
+      .swiper-container
+        width 750px
+        height 375px
+        .swiper-pagination
+          .swiper-pagination-bullet
+            background-color rgba(255,255,255,0.5)
+            width 40px
+            height 10px
+            border-radius 0
+          .swiper-pagination-bullet-active
+            background-color white
+      .first-slot
+        height 72px
+        width 100%
+        display flex
+        padding 0 30px
+        justify-content space-around
+        text-align center
+        line-height 72px
+        box-sizing border-box
+        li
+          font-size 24px
+          .iconfont
+            font-size 30px
+            color #B4282D
+      .first-categorys
+        display flex
+        width 100%
+        text-align center
+        flex-wrap wrap
+        border-bottom 20px solid #f4f4f4
+        li
+          width 110px
+          height 156px
+          margin 10px 20px 
+          img 
+            width 110px
+            height 110px
+          p
+            font-size 24px
+            margin-top 10px
+      .first-newperson
+        width 100%
+        height 558px
+        background-color #fff
+        // margin-top 20px
+        // box-sizing border-box
+        .first-newperson-title
+          width 100%
+          text-align center
+          line-height 90px
+          height 90px
+          p
+            font-size 30px
+            color #333333
+            font-weight 400
+        .first-newperson-content
+          display flex
+          .left
+            width 343px
+            height 434px
+            background-color #F9E9CF
+            font-size 32px
+            margin-left 30px
+            position relative
+            span 
+              margin 30px
+              display inline-block
+            img 
+              display block
+              position absolute
+              margin auto 
+              top 0
+              bottom -30px
+              right 0
+              left 0
+          .right
+            margin-left 5px
+            .right-wrap
+              background-color #FBE2D3
+              width 343px
+              height 215px
+              display flex
+              position relative
+              margin-bottom 5px
+              .right-text
+                :nth-child(1)
+                  font-size 32px
+                  margin 30px 30px
+                  color #333
+                :nth-child(2)
+                  color #7f7f7f
+                  font-size 24px
+                  margin 10px 30px
+                .glass
+                  background-color rgba(0,0,0,.3)
+                  width 120px
+                  height 32px
+                  text-align center
+                  border-radius 5px
+                  color white
+              .right-pic-wrap
+                position absolute
+                right 0
+                bottom 0
+                .right-yuan
+                  width 80px
+                  height 80px
+                  background-color #F59524
+                  opacity 0.8
+                  position absolute
+                  top 20px
+                  right 20px
+                  border-radius 50%
+                  color white
+                  font-size 20px
+                  :nth-child(1)
+                    text-align center  
+                    line-height 50px
+                    font-weight bold
+                  :nth-child(2)
+                    text-decoration line-through
+                    text-align center  
+                    font-size 18px
+                    font-weight bold
+                    // line-height 50px
+      .firstshop-container
+        width 100%
+        margin-top 30px
+        .shop-banner
+          .shop-add 
+            width 100%
+        .shop-list
+          height 391px
+          .shop-list-categorys
+            margin-top 20px
+            display flex
+            overflow hidden
+            li
+              margin 20px 0px 20px 20px
+              .shop-pho 
+                width 200px
+                height 200px
+                background-color #f4f4f4
+              .shop-name
+                width 200px
+                height 72px
+                font-size 24px
+                line-height 30px
+                color #333
+              .shop-price
+                width 200px
+                height 36px
+                color #b4282d
+            .shop-more
+              width 200px
+              height 200px
+              background-color #f4f4f4
+              float right 
+              margin 20px
+              font-size 28px
+              text-align center
+              line-height 200px

@@ -1,0 +1,147 @@
+.personalcontainer
+  background-color #F2F5F4
+  height 100%
+  position relative
+  .personal-content
+    .personal-content-logo
+      width 100%
+      height 482px
+      display flex
+      justify-content center
+      align-items center
+      img 
+        width 268px
+        height 90px
+        display block
+    .buttons
+      display flex
+      flex-wrap wrap
+      justify-content center
+      .buttons-phone,.buttons-message
+        margin-bottom 32px
+        .phone
+          width 670px
+          height 94px
+          background-color #DD1A21
+          color #ffffff
+          font-size 28px
+        .message
+          width 670px
+          height 94px
+          font-size 28px
+          border  1px solid #DD1A21
+          color #DD1A21
+    .personal-content-bottom
+      position absolute
+      bottom -300px
+      left 100px
+      display flex
+      justify-content center
+      .wrapitem
+        width 180px
+        height 40px
+        text-align center
+        line-height 40px
+        font-size 24px
+        color #7f7f7f
+  .phone-container
+    background-color #fff
+    height 100%
+    position relative
+    height 1334px
+    .personal-content-logo
+      width 100%
+      height 482px
+      display flex
+      justify-content center
+      img 
+        width 200px
+        height 62px
+        display block
+        margin-top 50px
+    .input
+      .putphone
+        width 100%
+        height 90px
+        margin 30px
+        box-sizing border-box
+        outline none
+        border-bottom 1px #ccc solid
+      span 
+        margin-left 30px
+      .zhengze
+        margin-left 30px
+        color #DD1A21
+      .inputwrap
+        width 100%
+        height 90px
+        margin 30px
+        box-sizing border-box
+        display flex
+        position relative
+        input
+          height 90px
+          outline none
+          border-bottom 1px #ccc solid
+          width 100%    
+        .code
+          position absolute
+          right 100px
+          top 0
+          width 160px
+          height 54px
+          font-size 24px
+      .wrap
+        width 100%
+        height 90px
+        margin 30px
+        box-sizing border-box
+        display flex
+        position relative
+        flex-wrap wrap
+        .password
+          width 750px
+          height 90px
+          margin  0 20px 
+          box-sizing border-box
+          outline none
+          border-bottom 1px #ccc solid 
+        .num
+          height 90px
+          outline none
+          border-bottom 1px #ccc solid
+          width 100% 
+          padding-left  20px  
+        .code
+          position absolute
+          right 50px
+          bottom -80px
+          width 160px
+          height 54px
+          font-size 24px
+      .btn
+        width 650px
+        height 94px
+        background-color #DD1A21
+        color #ffffff
+        font-size 28px
+        text-align center
+        line-height 94px
+        margin-left 50px
+        position absolute
+        bottom 350px
+        left  0
+      .loginphone
+        width 650px
+        height 94px
+        background-color #DD1A21
+        color #ffffff
+        font-size 28px
+        text-align center
+        line-height 94px
+        margin-left 50px
+    .otherLogin
+      text-emphasis center
+      position absolute
+      left 300px
+      bottom 300px
