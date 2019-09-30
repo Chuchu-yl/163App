@@ -10,7 +10,7 @@
         </div>
       </div>
       <!-- 家居 -->
-      <div class="found-content-container" v-show="this.$route.params.id==='0'">
+      <div class="found-content-container" v-show="this.$route.params.id===oldindex+''">
         <div class="found-content-firstpage">
           <div class="one">
             <img src="https://yanxuan.nosdn.127.net/05c56c6c8a364dd8a928e19ec89e2729.jpeg" alt="">
@@ -28,7 +28,8 @@
       </div>
       <!-- 推荐 -->
       <div class="tuijianwrapper">
-        <div class="tuijian-container" v-show="this.$route.params.id===oldindex+''">
+        <!-- <div class="tuijian-container" v-show="this.$route.params.id===oldindex+''"> -->
+        <div class="tuijian-container" v-if="!isShow">
             <div class="bianlione" v-for="(arr,index) in wrapArr" :key="index" >
               <div class="tuijian-xuanmei-big" ref="bianlibig" v-for="(topic,index) in arr.topics" :key="index.topicId" v-if="topic.type!==2">
                   <a href="javascript:;">
@@ -59,6 +60,38 @@
               </div>
             </div>
         </div>
+        <!-- 网络不好的情况下显示这个 -->
+        <div class="tuijian-container" v-else>
+          <div class="bianlione">
+              <div class="tuijian-xuanmei-big">
+                  <a href="javascript:;">
+                    <div class="u-name">
+                      <span class="avatar"><img src='../../common/images/shopping.png' alt=""></span>
+                      <span class="username"></span>
+                    </div>
+                    <div class="description"></div>
+                    <div class="u-pic"></div>
+                    <div class="watch"></div>
+                  </a>
+              </div>
+              <div class="tuijian-yonghu-small" >
+                <a href="javascript:;">
+                  <div class="yonghu-wrap">
+                    <div class="yonghu-left">
+                      <div class="u-name">
+                        <span class="avatar"><img src="" alt=""></span>
+                        <span class="username"></span>
+                      </div>
+                      <div class="description"></div>
+                      <div class="food"></div>
+                      <div class="watch"></div>
+                    </div>
+                    <div class="yonghu-right"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+        </div>
       </div>
   </div>
 </template>
@@ -78,7 +111,8 @@ export default{
       page:1,
       size:5,
       isMove:true,
-      res:{}
+      res:{},
+      isShow:true
     }
   },
   computed:{
@@ -154,8 +188,10 @@ export default{
         const {page,size}=this
         const result=await reqPullList({page,size})
         if(result.code==='200'){
+          this.isShow=false
           this.wrapArr=result.data.result
           }
+          
     },
     // 计算是否拖到了底部
     // againSendReq(){

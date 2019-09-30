@@ -1,11 +1,14 @@
 <template>
   <footer class="footcontainer" ref="footer">
-    <a href="javascript:;" class="guide_item" :class="{'on':$route.path==='/firstpage'}" @click="goto('/firstpage')">
+
+      <a href="javascript:;" class="guide_item" :class="{'on':$route.path==='/firstpage'}" @click="goto('/firstpage')">
         <span class="item_icon">
           <i class="iconfont icon-shouye"></i>
         </span>
         <span>首页</span>
     </a>
+    
+    
     <a href="javascript:;" class="guide_item" :class="{'on':$route.path==='/category'}" @click="goto('/category')">
         <span class="item_icon">
           <i class="iconfont icon-fenleishouye"></i>

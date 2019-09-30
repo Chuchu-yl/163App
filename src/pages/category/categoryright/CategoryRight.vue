@@ -49,9 +49,9 @@ export default{
   mounted(){
     // console.log(this.contentLists);
     // 接收一下正在点击的下标
-    if(this.contentLists){
-      this.initScroll()
-    }
+    // if(this.contentLists){
+    //   this.initScroll()
+    // }
     this.initSwiper()
   },
   updated(){
@@ -63,16 +63,16 @@ export default{
 
   },
   methods:{
-   initScroll(){
-     const big=this.$refs.big.clientHeight
-     const inner = this.$refs.container.clientHeight
-    //  console.log(inner);
-    //  console.log(big);
-     new BScroll('.categoryrightcontainer',{
-       click:true,
-       scrollY:true
-     })
-   },
+  //  initScroll(){
+  //    const big=this.$refs.big.clientHeight
+  //    const inner = this.$refs.container.clientHeight
+  //   //  console.log(inner);
+  //   //  console.log(big);
+  //    new BScroll('.categoryrightcontainer',{
+  //      click:true,
+  //      scrollY:true
+  //    })
+  //  },
    initSwiper(){
     new Swiper ('.swiper-container', {
       loop: true, // 循环模式选项
@@ -88,7 +88,7 @@ export default{
   watch:{
     rightIndex(){
       this.$nextTick(()=>{
-        this.initScroll()
+        // this.initScroll()
         this.initSwiper()
       })
     }

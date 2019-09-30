@@ -1,6 +1,10 @@
 <template>
   <div>
-    <router-view></router-view>
+
+    <!-- 这样可以实现切换回原来的路由界面的时候可以还在原来的位置 -->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <FooterGuide v-show="$route.meta.isShowFooter"></FooterGuide>
   </div>
 </template>
